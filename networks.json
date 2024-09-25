@@ -1,0 +1,8 @@
+{
+  "zksync-era-testnet": {
+    "events": {
+      "address": "0xdE1614049EFA45b96f302894541c81dc57Bb461a",
+      "startBlock": 0
+    }
+  }
+}

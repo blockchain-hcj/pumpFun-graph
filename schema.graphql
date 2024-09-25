@@ -1,0 +1,37 @@
+type PumpFunEvent @entity(immutable: true) {
+  id: Bytes!
+  token: Bytes! # address
+  account: Bytes! # address
+  isBuy: Boolean! # bool
+  userETHChangeAmount: BigInt! # uint256
+  tokenChangeAmount: BigInt! # uint256
+  currentEthAmount: BigInt! # uint256
+  currentTokenAmount: BigInt! # uint256
+  currentTokenPrice: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PumpFunTransfer @entity(immutable: true) {
+  id: Bytes!
+  token: Bytes! # address
+  from: Bytes! # address
+  to: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+
+type PriceCandle @entity {
+  id: ID!
+  token: String!
+  open: BigInt!
+  high: BigInt!
+  low: BigInt!
+  close: BigInt!
+  timestamp: Int! # start of period
+  period: String!
+}

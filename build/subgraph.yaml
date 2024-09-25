@@ -1,0 +1,29 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: events
+    network: zklink-nova
+    source:
+      address: "0x5265002Aa3FE64C95BBd8e20959AFc8f967f572e"
+      abi: events
+      startBlock: 3771322
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - PumpFunEvent
+        - PumpFunTransfer
+      abis:
+        - name: events
+          file: events/abis/events.json
+      eventHandlers:
+        - event: PumpFunEvent(indexed address,address,bool,uint256,uint256,uint256,uint256,uint256)
+          handler: handlePumpFunEvent
+        - event: PumpFunTransfer(indexed address,indexed address,indexed address,uint256)
+          handler: handlePumpFunTransfer
+      file: events/events.wasm
